@@ -10,12 +10,13 @@ class MenuCategory(models.Model):
 class MenuItem(models.Model):
     category = models.ForeignKey(MenuCategory, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
+    price = models.SmallIntegerField(default=0)
     description = models.TextField()
 
 
 # Customer, sessions, and orders.
 # Separating out customers from tables, since we might
-# want to be able to split checks. 
+# want to be able to split checks.
 
 class Table(models.Model):
     location = models.CharField(max_length=255)
